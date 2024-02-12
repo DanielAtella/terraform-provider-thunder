@@ -16,6 +16,12 @@ func resourceWriteMemory() *schema.Resource {
 		DeleteContext: resourceWriteMemoryDelete,
 
 		Schema: map[string]*schema.Schema{
+			"force_recreate": &schema.Schema{
+				Type:     schema.TypeString,
+				Optional: true,
+				ForceNew: true,
+				Computed: true,
+			},
 			"destination": {
 				Type: schema.TypeString, Optional: true, Description: "'primary': Write to default Primary Configuration; 'secondary': Write to default Secondary Configuration; 'local': Local Configuration Profile Name;",
 			},
